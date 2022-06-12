@@ -2,6 +2,8 @@ package com.pakt_games.customtoast
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.pakt_games.customtoast.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -9,6 +11,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        bindingMain = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(bindingMain.root)
+
+        bindingMain.buttonShowToast.setOnClickListener {
+            Toast.makeText(this,"Toast Açıldı",Toast.LENGTH_SHORT).show()
+        }
     }
 }
